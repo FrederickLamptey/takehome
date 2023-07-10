@@ -2,14 +2,29 @@
 
 Challenge: A directory contains multiple files and directories of non-uniform file and directory names. Create a program that traverses a base directory and creates an index file that can be used to quickly lookup files by name, size, and content type.
 
-# Instructions
+# Usage
+To use this script perfectly, follow the steps below:
 
-Fork this repository and implement the above requirements. The result must be an application that implements both the index and search features. Use your best judgement as to the interface that is used to use the index and search features, but remember that this is meant to create a dialog during the interview process, not be something that would be used in production.
+1. Provide the absolute path to the root directory where the search will be done and assign it to a variable.
 
-Feel free to use the language, libraries, and tools that you are most comfortable in and best reflect your ability to translate requirements into a functional implementation.
+Example: 
+base_directory = '/Users/agneslamptey/Documents/takehome'
 
-Once the project is implemented, remove the `# Instructions` section of this readme and add the section `# Usage` with instructions on how to run the produced application.
+2. Call the function "traverse_directory(base_folder)" and assign it to a variable to run the search in the root folder you provided earlier.
 
-The `test_data` directory in this project contains files and directories that can be used to test your implementation.
+Example:
+index = traverse_directory(base_directory)
 
-Good luck.
+3. Provide the name of the csv file to be created and assign it to a variable. 
+Note: In this case, the name of the csv file should be "index"
+
+Example:
+output_file = '../index.csv'
+
+4. Call the function "save_index_to_csv(index, output_file)" that will create and write the search indexes to the csv file you provided earlier.
+
+Example:
+save_index_to_csv(index, output_file) 
+
+Output:
+A csv file will be created containing all the search indexes as expected.
