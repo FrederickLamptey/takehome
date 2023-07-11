@@ -29,14 +29,15 @@ def save_index_to_csv(index, output_file):
 
 def search_index_file(index_file, search_term):
     results = []
+    '''This function seaches the index file'''
     
-    with open(index_file, 'r') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            for field, value in row.items():
+    with open(index_file, 'r') as csvfile: #opens file in read mode
+        reader = csv.DictReader(csvfile) #reads file
+        for row in reader: #iterates over each row
+            for field, value in row.items(): 
                 if search_term.lower() in value.lower():
                     results.append(row)
-                    break  # Found a match, no need to search further in this row
+                    break  #loop/search stops as soon as a match is found
     
     return results
 
