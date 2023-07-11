@@ -27,11 +27,33 @@ def save_index_to_csv(index, output_file):
         writer.writeheader() #writes the header from the "writer"
         writer.writerows(index) #writes the content of the list returned from the function traverse_directory(base_folder) to the csvfile.
 
+def search_index_file(index_file, search_term):
+    results = []
+    
+    with open(index_file, 'r') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            for field, value in row.items():
+                if search_term.lower() in value.lower():
+                    results.append(row)
+                    break  # Found a match, no need to search further in this row
+    
+    return results
+
 # Calling/running script
 base_directory = '/Users/agneslamptey/Documents/takehome'
 index = traverse_directory(base_directory)
 output_file = '../index.csv'
 save_index_to_csv(index, output_file)
+search = 'description'
+results = search_index_file(output_file, search)
+
+if results:
+    print("Matching results:")
+    for result in results:
+        print(result)
+else:
+    print("No matching results found.")
 
 '''
 base_directory = '/Users/agneslamptey/Documents/takehome'
