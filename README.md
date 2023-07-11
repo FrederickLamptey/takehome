@@ -27,12 +27,14 @@ Example:
 save_index_to_csv(index, output_file) 
 
 ADD ON
+
 5. You can search for a file by providing the name of the file and assign it to a variable, and then call the function "search_index_file(index_file, search_term)" to search for the file name you provided.
 
 Example:
 search = 'description'
+
 results = search_index_file(output_file, search)
 
 Output:
--A csv file will be created containing all the search indexes as expected.
+- A csv file will be created containing all the search indexes as expected.
 - May find a match for the search
